@@ -14,7 +14,7 @@ def create_app():
     app.register_blueprint(aut.bp)
 
     @app.route("/")
-    def home():
-        return render_template("base.html")
+    def index():
+        return render_template("index.html")
 
     return app
