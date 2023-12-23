@@ -1,19 +1,59 @@
 {% extends "base.html" %} {% block content %}
-<form class="box">
+<form class="box" method="post">
+  <h1 class="title has-text-centered">Registro</h1>
   <div class="field">
-    <label class="label">Email</label>
+    <label for="username" class="label">Ingresar Nombre</label>
     <div class="control">
-      <input class="input" type="email" placeholder="e.g. alex@example.com" />
+      <input
+        class="input"
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Nombre"
+        required
+      />
+    </div>
+  </div>
+  <div class="field">
+    <label class="label" for="email">Ingresar Email</label>
+    <div class="control">
+      <input
+        class="input"
+        type="email"
+        id="email"
+        name="email"
+        placeholder="e.g. alex@example.com"
+        required
+      />
+    </div>
+  </div>
+  <div class="field">
+    <label class="label" for="password">Ingresar contraseña</label>
+    <div class="control">
+      <input
+        class="input"
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Ingresar contraseña"
+        required
+      />
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">Confirmar contraseña</label>
+    <div class="control">
+      <input
+        class="input"
+        type="password"
+        id="cpassword"
+        name="cpassword"
+        placeholder="Confirmar contraseña"
+        required
+      />
     </div>
   </div>
 
-  <div class="field">
-    <label class="label">Password</label>
-    <div class="control">
-      <input class="input" type="password" placeholder="********" />
-    </div>
-  </div>
-
-  <button class="button is-primary">Sign in</button>
+  <button class="button is-info">Registrarse</button>
 </form>
 {% endblock content %}
