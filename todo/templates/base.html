@@ -19,49 +19,69 @@
     </header>
   <body>
     <main >
-      <div class="tabs is-toggle is-fullwidth">
-        <ul>
-          <li class="is-active">
-            <a>
-              <span class="icon is-small"
-                ><i class="fas fa-image" aria-hidden="true"></i
-              ></span>
-              <span>Lista de tareas</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <span class="icon is-small"
-                ><i class="fas fa-music" aria-hidden="true"></i
-              ></span>
-              <span>Tareas Pendienres</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <span class="icon is-small"
-                ><i class="fas fa-film" aria-hidden="true"></i
-              ></span>
-              <span>Tareas en Proceso</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <span class="icon is-small"
-                ><i class="far fa-file-alt" aria-hidden="true"></i
-              ></span>
-              <span>Tareas Realizadas</span>
-            </a>
-          </li>
-        </ul>
-      </div>
+        <nav class="navbar has-background-primary" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="#">
+                <img src="https://thumbs.dreamstime.com/b/to-do-list-banner-template-ribbon-label-sign-177646727.jpg" width="112" height="28">
+              </a>
+          
+              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </a>
+            </div>
+          
+            <div id="navbarBasicExample" class="navbar-menu">
+              <div class="navbar-start">
+                <a class="navbar-item">
+                  Lista de Tareas
+                </a>
+          
+                <a class="navbar-item">
+                  Tareas Pendientes
+                </a>
+                <a class="navbar-item">
+                  Tareas en Proceso
+                </a>
+                <a class="navbar-item">
+                    Tareas Realizadas
+                  </a>
+
+              </div>
+              <div class="field has-addons pt-3">
+                <div class="control">
+                  <input class="input" type="text" placeholder="Ingresar tarea">
+                </div>
+                <div class="control">
+                  <a class="button is-info">
+                    Buscar
+                  </a>
+                </div>
+              </div>
+              <div class="navbar-end">
+                <div class="navbar-item">
+                  <div class="buttons">
+                    <a class="button is-info">
+                      <strong>Registrarse</strong>
+                    </a>
+                    <a class="button is-light">
+                      Acceder
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+          
       <section class="section">
+        
         <div class="container">
           {% block content %}{% endblock %}
         </div>
       </section>
     </main>
-    <footer class="footer">
+    <footer class="footer has-background-light">
       <div class="content has-text-centered">
         <p>
           <strong>Todo list App</strong> by <a href="">Oscar Girao</a>. The
