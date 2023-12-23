@@ -23,7 +23,7 @@ class Todo(db.Model):
     desc = db.Column(db.Text)
     estado = db.Column(db.Boolean, default=False)
 
-    def __init__(self, creado, titulo, desc, estado=False):
+    def __init__(self, creador, titulo, desc, estado=False):
         self.creador = creador
         self.titulo = titulo
         self.desc = desc
