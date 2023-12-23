@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template
+from . import models
 
 bp = Blueprint("aut", __name__, url_prefix="/aut")
 
