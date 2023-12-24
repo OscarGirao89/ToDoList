@@ -9,6 +9,7 @@ from flask import (
     g,
 )
 
+
 from werkzeug.security import generate_password_hash, check_password_hash
 from .models import User
 from ToDo import db
@@ -73,3 +74,12 @@ def load_logged_in_user():
         g.usuario = None
     else:
         g.usuario = User.query.get_or_404(usuario_id)
+
+
+import functools
+
+
+@bp.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for("index"))
