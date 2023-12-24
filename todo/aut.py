@@ -1,4 +1,13 @@
-from flask import Blueprint, render_template, request, url_for, redirect, flash
+from flask import (
+    Blueprint,
+    render_template,
+    request,
+    url_for,
+    redirect,
+    flash,
+    session,
+    g,
+)
 
 from werkzeug.security import generate_password_hash, check_password_hash
 from .models import User
@@ -31,6 +40,27 @@ def registro():
     return render_template("aut/registro.html")
 
 
-@bp.route("/acceder")
+@bp.route("/acceder", methods=["GET", "POST"])
 def acceder():
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+
+        error = None
+        # validar datos
+
+        usuario = User.query.filter_by(username=username).first()
+
+        if usuario == None:
+            error = "No existe ese usuario"
+        elif not check_password_hash(usuario.password, password):
+            error = "El password es incorrecto"
+
+        if error is None:
+            session.clear()
+            session["usuario_id"] = usuario.id
+
+            return redirect(url_for("index"))
+
+        flash(error)
     return render_template("aut/acceder.html")

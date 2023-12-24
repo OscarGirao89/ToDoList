@@ -1,16 +1,16 @@
 {% extends "base.html" %} {% block content %}
-<form class="box">
+<form class="box" method="post">
   <h1 class="title has-text-centered">Iniciar Sesión</h1>
 
   <div class="field">
-    <label class="label" for="email" Email>Email</label>
+    <label class="label" for="username">Usuario</label>
     <div class="control">
       <input
         class="input"
-        type="email"
-        id="email"
-        name="email"
-        placeholder="e.g. alex@example.com"
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Nombre"
         required
       />
     </div>
@@ -29,7 +29,6 @@
       />
     </div>
   </div>
-
-  <button class="button is-info">Ingresar</button>
+  <button class="button is-info" value="Login">Iniciar Sesión</button>
 </form>
 {% endblock content %}
