@@ -64,3 +64,12 @@ def acceder():
 
         flash(error)
     return render_template("aut/acceder.html")
+
+
+@bp.before_app_request
+def load_logged_in_user():
+    usuario_id = session.get("usuario_id")
+    if usuario_id is None:
+        g.usuario = None
+    else:
+        g.usuario = User.query.get_or_404(usuario_id)
