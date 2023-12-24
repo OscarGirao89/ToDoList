@@ -16,12 +16,17 @@ def registro():
 
         usuario = User(username, email, generate_password_hash(password))
 
+        error = None
+
         nombre_usuario = User.query.filter_by(username=username).first()
         if nombre_usuario == None:
             db.session.add(usuario)
             db.session.commit()
 
             return redirect(url_for("aut.acceder"))
+        else:
+            error = f"El usuario {username} ya existe, ingrese otro nombre de usuario"
+            flash(error)
 
     return render_template("aut/registro.html")
 
