@@ -76,10 +76,20 @@ def load_logged_in_user():
         g.usuario = User.query.get_or_404(usuario_id)
 
 
-import functools
-
-
 @bp.route("/logout")
 def logout():
     session.clear()
     return redirect(url_for("index"))
+
+
+import functools
+
+
+def login_required(vista):
+    @functools.wraps(vista)
+    def capturando_vista(**kwargs):
+        if g.usuario is None:
+            return redirect(url_for("aut.acceder"))
+        return vista(**kwargs)
+
+    return capturando_vista
