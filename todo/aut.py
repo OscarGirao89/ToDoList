@@ -61,7 +61,7 @@ def acceder():
             session.clear()
             session["usuario_id"] = usuario.id
 
-            return redirect(url_for("index"))
+            return redirect(url_for("app.lista"))
 
         flash(error)
     return render_template("aut/acceder.html")
