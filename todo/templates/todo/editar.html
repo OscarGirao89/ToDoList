@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block content%}
+
+<section class="section">
+  <div class="container">
+    <h1 class="title has-text-centered">Lista de Tareas</h1>
+    <form method="POST" class="m-5">
+      <div class="field has-addons">
+        <div class="control is-expanded">
+          <input
+            class="input"
+            type="text"
+            name="titulo_tarea"
+            id="titutlo_tarea"
+            placeholder="Nombre de la tarea"
+            value="{{tarea.titulo}}"
+            required
+          />
+        </div>
+        <div class="control is-expanded">
+          <input
+            class="input"
+            type="text"
+            name="desc_tarea"
+            id="desc_tarea"
+            placeholder="Descripción de la tarea"
+            value="{{tarea.desc}}"
+            required
+          />
+        </div>
+        <div class="control">
+          <button class="button is-primary" type="submit">Confirmar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}
