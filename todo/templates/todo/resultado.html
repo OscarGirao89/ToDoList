@@ -1,0 +1,76 @@
+{% extends "base.html" %} {% block content%}
+
+<section class="section">
+  <div class="container">
+    <h1 class="title has-text-centered">Lista de Tareas</h1>
+   
+    <table class="table is-fullwidth">
+      <thead>
+        <tr>
+          <th>Nombre de Tarea</th>
+          <th>Descripción</th>{% extends "base.html" %} {% block content%}
+
+          <section class="section">
+            <div class="container">
+              <h1 class="title has-text-centered">Lista de Tareas</h1>
+             
+              <table class="table is-fullwidth">
+                <thead>
+                  <tr>
+                    <th>Nombre de Tarea</th>
+                    <th>Descripción</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Ejemplo de una tarea, puedes repetir este bloque para cada tarea -->
+                  {%for tarea in resultados%} {% if g.usuario.id == tarea.creador%}
+                  <tr>
+                    <td>{{tarea.titulo}}</td>
+                    <td>{{tarea.desc}}</td>
+                    <td class="{%if tarea.estado == "Pendiente"%} has-text-danger{%elif tarea.estado == "Realizado"%}has-text-warning {%else%} has-text-success {%endif%}">{{tarea.estado}}</td>
+                    <td>
+                      <form method="get">
+                        <div class="buttons">
+                          <a class="button is-link" href="{{url_for("app.editar", id=tarea.id)}}">Editar</a>
+                          <a class="button is-danger" href="{{url_for("app.eliminar", id=tarea.id)}}">Eliminar</a>
+                        </div>
+                      </form>
+                    </td>
+                  </tr>
+                  {%endif%} {%endfor%}
+                  <!-- Fin del ejemplo de tarea -->
+                </tbody>
+              </table>
+            </div>
+          </section>
+          {% endblock %}
+          
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Ejemplo de una tarea, puedes repetir este bloque para cada tarea -->
+        {%for tarea in resultados%} {% if g.usuario.id == tarea.creador%}
+        <tr>
+          <td>{{tarea.titulo}}</td>
+          <td>{{tarea.desc}}</td>
+          <td class="{%if tarea.estado == "Pendiente"%} has-text-danger{%elif tarea.estado == "Realizado"%}has-text-warning {%else%} has-text-success {%endif%}">{{tarea.estado}}</td>
+          <td>
+            <form method="get">
+              <div class="buttons">
+                <a class="button is-link" href="{{url_for("app.editar", id=tarea.id)}}">Editar</a>
+                <a class="button is-danger" href="{{url_for("app.eliminar", id=tarea.id)}}">Eliminar</a>
+              </div>
+            </form>
+          </td>
+        </tr>
+        {%endif%} {%endfor%}
+        <!-- Fin del ejemplo de tarea -->
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

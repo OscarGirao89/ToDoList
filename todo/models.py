@@ -26,7 +26,7 @@ class Todo(db.Model):
     def __init__(self, creador, titulo, desc, estado="Pendiente"):
         self.creador = creador
         self.titulo = titulo
-        self.desc = desc
+        self.desc = desc if desc != "" else titulo
         self.estado = estado
 
     def __repr__(self):

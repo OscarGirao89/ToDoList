@@ -3,32 +3,7 @@
 <section class="section">
   <div class="container">
     <h1 class="title has-text-centered">Lista de Tareas</h1>
-    <form method="POST" class="m-5">
-      <div class="field has-addons">
-        <div class="control is-expanded">
-          <input
-            class="input"
-            type="text"
-            name="titulo_tarea"
-            id="titutlo_tarea"
-            placeholder="Nombre de la tarea"
-            required
-          />
-        </div>
-        <div class="control is-expanded">
-          <input
-            class="input"
-            type="text"
-            name="desc_tarea"
-            id="desc_tarea"
-            placeholder="Descripción de la tarea"
-          />
-        </div>
-        <div class="control">
-          <button class="button is-primary" type="submit">Agregar</button>
-        </div>
-      </div>
-    </form>
+   
     <table class="table is-fullwidth">
       <thead>
         <tr>
@@ -40,11 +15,11 @@
       </thead>
       <tbody>
         <!-- Ejemplo de una tarea, puedes repetir este bloque para cada tarea -->
-        {%for tarea in tareas%} {% if g.usuario.id == tarea.creador%}
+        {%for tarea in tareas%} {% if g.usuario.id == tarea.creador and tarea.estado == "Realizado"%}
         <tr>
           <td>{{tarea.titulo}}</td>
           <td>{{tarea.desc}}</td>
-          <td class="{%if tarea.estado == "Pendiente"%} has-text-danger{%elif tarea.estado == "Realizado"%}has-text-warning {%else%} has-text-success {%endif%}">{{tarea.estado}}</td>
+          <td class="has-text-danger">{{tarea.estado}}</td>
           <td>
             <form method="get">
               <div class="buttons">

@@ -29,6 +29,7 @@ def registro():
         error = None
 
         nombre_usuario = User.query.filter_by(username=username).first()
+
         if nombre_usuario == None:
             db.session.add(usuario)
             db.session.commit()
