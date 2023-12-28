@@ -34,6 +34,7 @@ def editar(id):
     if request.method == "POST":
         tarea.titulo = request.form["titulo_tarea"]
         tarea.desc = request.form["desc_tarea"]
+        tarea.estado = request.form["estado"]
         db.session.commit()
 
         return redirect(url_for("app.lista"))

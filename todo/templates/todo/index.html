@@ -45,7 +45,7 @@
         <tr>
           <td>{{tarea.titulo}}</td>
           <td>{{tarea.desc}}</td>
-          <td>{{tarea.estado}}</td>
+          <td class="{%if tarea.estado == "Pendiente"%} has-text-danger{%elif tarea.estado == "Realizado"%}has-text-warning {%else%} has-text-success {%endif%}">{{tarea.estado}}</td>
           <td>
             <form method="get">
               <div class="buttons">

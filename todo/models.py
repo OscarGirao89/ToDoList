@@ -20,10 +20,10 @@ class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     creador = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
     titulo = db.Column(db.String(100), nullable=False)
-    desc = db.Column(db.Text)
-    estado = db.Column(db.Boolean, default=False)
+    desc = db.Column(db.Text, default="Descripción")
+    estado = db.Column(db.String(10), nullable=False)
 
-    def __init__(self, creador, titulo, desc, estado=False):
+    def __init__(self, creador, titulo, desc, estado="Pendiente"):
         self.creador = creador
         self.titulo = titulo
         self.desc = desc
